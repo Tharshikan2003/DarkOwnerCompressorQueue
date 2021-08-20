@@ -29,7 +29,7 @@ async def up(event):
 
 async def start(event):
     await event.reply(
-        f"Hi `{event.sender.first_name}`\nHi, I am Dark's Bot Which Can Encode Videos.\nI an using an official ffmpeg code used by dark for @Animes_Encoded , So pls dont try to encode any anime episode\This Bot Was Hosted On Railways and On Qovery.",
+        f"Hi `{event.sender.first_name}`\nHi, I am Dark's Bot Which Can Encode Videos.\nI an using an official ffmpeg code used by dark for @Animes_Encoded , So pls dont try to encode any anime episode\\This Bot Was Hosted On Railways and On Qovery.",
         buttons=[
             [Button.inline("HELP", data="ihelp")],
             [
