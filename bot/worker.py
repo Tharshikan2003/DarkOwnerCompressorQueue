@@ -98,7 +98,7 @@ async def encod(event):
                     event.media,
                     dir,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, xxx, ttt, "Downloading")
+                        progress(d, t, xxx, ttt, "Downloading Your Anime File")
                     ),
                 )
         except Exception as er:
@@ -109,7 +109,7 @@ async def encod(event):
         kk = dl.split("/")[-1]
         aa = kk.split(".")[-1]
         rr = f"encode"
-        bb = kk.replace(f".{aa}", " Encoded.mkv")
+        bb = kk.replace(f".{aa}", " [Encoded].mkv")
         out = f"{rr}/{bb}"
         thum = "thumb.jpg"
         dtime = ts(int((es - s).seconds) * 1000)
@@ -117,10 +117,10 @@ async def encod(event):
         hehe = f"{out};{dl};0"
         wah = code(hehe)
         nn = await e.edit(
-            "`Compressing..`",
+            "`Encoding The File..`",
             buttons=[
-                [Button.inline("STATS", data=f"stats{wah}")],
-                [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
+                [Button.inline("Stats Of Encoding", data=f"stats{wah}")],
+                [Button.inline("Cancel the process", data=f"skip{wah}")],
             ],
         )
         cmd = FFMPEG.format(dl, out)
@@ -131,7 +131,7 @@ async def encod(event):
         er = stderr.decode()
         try:
             if er:
-                await e.edit(str(er) + "\n\n**ERROR** Contact @danish_00")
+                await e.edit(str(er) + "\n\n**ERROR** Contact @Bro_isDarkal")
                 WORKING.clear()
                 os.remove(dl)
                 return os.remove(out)
@@ -149,7 +149,7 @@ async def encod(event):
                 file=f,
                 name=out,
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, nnn, ttt, "uploading..")
+                    progress(d, t, nnn, ttt, "uploading the anime file..")
                 ),
             )
         ds = await e.client.send_file(
@@ -167,7 +167,7 @@ async def encod(event):
         a1 = await info(dl, e)
         a2 = await info(out, e)
         dk = await ds.reply(
-            f"Original Size : {hbs(org)}\nCompressed Size : {hbs(com)}\nCompressed Percentage : {per}\n\nMediainfo: [Before]({a1})//[After]({a2})\n\nDownloaded in {x}\nCompressed in {xx}\nUploaded in {xxx}",
+            f"Original Size : {hbs(org)}\nEncoded Size : {hbs(com)}\nEncoded Percentage : {per}\n\nMediainfo: [Before]({a1})//[After]({a2})\n\nDownloaded in {x}\nEncoded in {xx}\nUploaded in {xxx}",
             link_preview=False,
         )
         os.remove(dl)
