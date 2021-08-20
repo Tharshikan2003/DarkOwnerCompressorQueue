@@ -156,7 +156,9 @@ async def something():
                 ees = dt.now()
                 ttt = time.time()
                 await nn.delete()
-                nnn = await e.client.send_message(e.chat_id, "`Uploading Your Anime file...`")
+                nnn = await e.client.send_message(
+                    e.chat_id, "`Uploading Your Anime file...`"
+                )
                 with open(out, "rb") as f:
                     ok = await upload_file(
                         client=e.client,
