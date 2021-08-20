@@ -56,7 +56,7 @@ async def encod(event):
         except BaseException:
             pass
         if WORKING or QUEUE:
-            xxx = await event.reply("`Adding To Queue`")
+            xxx = await event.reply("`Wait a min, File will be added in Queue`")
             # id = pack_bot_file_id(event.media)
             doc = event.media.document
             if doc.id in list(QUEUE.keys()):
@@ -65,9 +65,9 @@ async def encod(event):
             if not name:
                 name = "video_" + dt.now().isoformat("_", "seconds") + ".mp4"
             QUEUE.update({doc.id: [name, doc]})
-            return await xxx.edit("`Added This File in Queue`")
+            return await xxx.edit("`Your File Has Been Added to Queue`")
         WORKING.append(1)
-        xxx = await event.reply("`Downloading...`")
+        xxx = await event.reply("`Downloading Your Anime File...`")
         s = dt.now()
         ttt = time.time()
         dir = f"downloads/"
@@ -109,7 +109,7 @@ async def encod(event):
         kk = dl.split("/")[-1]
         aa = kk.split(".")[-1]
         rr = f"encode"
-        bb = kk.replace(f".{aa}", " compressed.mkv")
+        bb = kk.replace(f".{aa}", " Encoded.mkv")
         out = f"{rr}/{bb}"
         thum = "thumb.jpg"
         dtime = ts(int((es - s).seconds) * 1000)
@@ -140,7 +140,7 @@ async def encod(event):
         ees = dt.now()
         ttt = time.time()
         await nn.delete()
-        nnn = await e.client.send_message(e.chat_id, "`Uploading...`")
+        nnn = await e.client.send_message(e.chat_id, "`Uploading The File You Gave me to Encode...`")
         with open(out, "rb") as f:
             ok = await upload_file(
                 client=e.client,
