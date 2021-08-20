@@ -140,7 +140,9 @@ async def encod(event):
         ees = dt.now()
         ttt = time.time()
         await nn.delete()
-        nnn = await e.client.send_message(e.chat_id, "`Uploading The File You Gave me to Encode...`")
+        nnn = await e.client.send_message(
+            e.chat_id, "`Uploading The File You Gave me to Encode...`"
+        )
         with open(out, "rb") as f:
             ok = await upload_file(
                 client=e.client,
