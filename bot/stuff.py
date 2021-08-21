@@ -48,7 +48,7 @@ async def help(event):
 
 async def ihelp(event):
     await event.edit(
-        "**⏳ ffmpeg -i '''{}'''  -vf "drawtext='fontfile=resources/downloads/Moonrising Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=@Animes_Encoded"  -c:v libx265   -x265-params "bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1" -metadata  title=DarkEncodes      -s 1280x720 -crf 29.5 -c:a libopus -b:a 32k -c:s copy  -map 0 -ac 2  -ab 36k -pix_fmt yuv420p -preset faster  -vbr 2 '''{}''' -y **\n\n+This Bot Uses Thia code to encode  Videos With Negligible Quality Change.\n+Its a 720p code\n+It Has Queue Features also\n+Easy to Use\n-Due to The use of bot for @Animes_encoded, this bot is not for public use.\nSo, Ask me first before using.\nDont Spam Bot.\n\nThanka for reading it",
+        "**⏳ ffmpeg -i  -c:v libx265   -x265-params "bframes=8:psy-rd=1:ref=3:aq-mode=3:aq-strength=0.8:deblock=1,1" -metadata  title=DarkEncodes      -s 1280x720 -crf 29.5 -c:a libopus -b:a 32k -c:s copy  -map 0 -ac 2  -ab 36k -pix_fmt yuv420p -preset faster  -vbr 2 '''{}''' -y **\n\n+This Bot Uses Thia code to encode  Videos With Negligible Quality Change.\n+Its a 720p code\n+It Has Queue Features also\n+Easy to Use\n-Due to The use of bot for @Animes_encoded, this bot is not for public use.\nSo, Ask me first before using.\nDont Spam Bot.\n\nThanka for reading it",
         buttons=[Button.inline("BACK", data="beck")],
     )
 
