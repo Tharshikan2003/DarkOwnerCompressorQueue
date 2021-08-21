@@ -57,7 +57,7 @@ async def beck(event):
     await event.edit(
         f"Hi `{event.sender.first_name}`\nThis is A Bot  Which Can Encode Videos.",
         buttons=[
-            [Button.inline("HELP", data="ihelp")],
+            [Button.inline("What code Is used in FFMPEG", data="ihelp")],
             [
                 Button.url("Channel", url="t.me/animes_encoded"),
                 Button.url("Boss", url="t.me/Bro_isDarkal"),
