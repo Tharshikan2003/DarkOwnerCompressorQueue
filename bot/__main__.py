@@ -117,7 +117,7 @@ async def something():
                                 t,
                                 e,
                                 tt,
-                                "Downloading Your Anime files",
+                                "🎦Downloading Your Anime files🎦",
                             )
                         ),
                     )
@@ -132,10 +132,10 @@ async def something():
                 hehe = f"{out};{dl};{list(QUEUE.keys())[0]}"
                 wah = code(hehe)
                 nn = await e.edit(
-                    "`Compressing..`",
+                    "✅Your File is Being Encoded✅ Check Stats Below🔽",
                     buttons=[
-                        [Button.inline("Stats of your process", data=f"stats{wah}")],
-                        [Button.inline("Cancel your process", data=f"skip{wah}")],
+                        [Button.inline("Stats of your process ⚠️", data=f"stats{wah}")],
+                        [Button.inline("Cancel your process ⚠️", data=f"skip{wah}")],
                     ],
                 )
                 cmd = FFMPEG.format(dl, out)
@@ -157,7 +157,7 @@ async def something():
                 ttt = time.time()
                 await nn.delete()
                 nnn = await e.client.send_message(
-                    e.chat_id, "`Uploading Your Animes Files ...`"
+                    e.chat_id, "✅Uploading Your Animes Files✅ ..."
                 )
                 with open(out, "rb") as f:
                     ok = await upload_file(
@@ -165,7 +165,7 @@ async def something():
                         file=f,
                         name=out,
                         progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                            progress(d, t, nnn, ttt, "uploading ur files...")
+                            progress(d, t, nnn, ttt, "✅uploading ur files✅...")
                         ),
                     )
                 ds = await e.client.send_file(
