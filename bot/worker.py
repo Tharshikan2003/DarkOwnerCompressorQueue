@@ -52,22 +52,23 @@ async def encod(event):
             oc = event.fwd_from.from_id.user_id
             occ = (await event.client.get_me()).id
             if oc == occ:
-                return await event.reply("`This Video File is already Compressed 😑😑.`")
+                return await event.reply("This Video File is already Compressed 😑😑.")
         except BaseException:
             pass
         if WORKING or QUEUE:
-            xxx = await event.reply("`Wait a min, File will be added in Queue`")
+            xxx = await event.reply("⏰Wait a min, File will be added in Queue")
             # id = pack_bot_file_id(event.media)
             doc = event.media.document
             if doc.id in list(QUEUE.keys()):
-                return await xxx.edit("`THIS FILE ALREADY IN QUEUE`")
+                return await xxx.edit("THIS FILE ALREADY IN QUEUE🌋")
             name = event.file.name
             if not name:
                 name = "video_" + dt.now().isoformat("_", "seconds") + ".mp4"
             QUEUE.update({doc.id: [name, doc]})
-            return await xxx.edit("`Your File Has Been Added to Queue`")
+            return await xxx.edit("Added to Queue ⏰... Please be patient, Compress will start soon")
+Please be patient, Compress will start soon   ")
         WORKING.append(1)
-        xxx = await event.reply("`Downloading Your Anime File...`")
+        xxx = await event.reply("📊 Downloading Your Anime File 📊")
         s = dt.now()
         ttt = time.time()
         dir = f"downloads/"
@@ -89,7 +90,7 @@ async def encod(event):
                                 t,
                                 xxx,
                                 ttt,
-                                "Downloading",
+                                "📊 Downloading Your Anime File 📊",
                             )
                         ),
                     )
@@ -98,7 +99,7 @@ async def encod(event):
                     event.media,
                     dir,
                     progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                        progress(d, t, xxx, ttt, "Downloading Your Anime File")
+                        progress(d, t, xxx, ttt, "Downloading Your Anime File 📊")
                     ),
                 )
         except Exception as er:
@@ -117,10 +118,10 @@ async def encod(event):
         hehe = f"{out};{dl};0"
         wah = code(hehe)
         nn = await e.edit(
-            "`Encoding The File..`",
+            "✅Your File is Being Encoded✅ Check Stats Below🔽",
             buttons=[
-                [Button.inline("Stats Of Encoding", data=f"stats{wah}")],
-                [Button.inline("Cancel the process", data=f"skip{wah}")],
+                [Button.inline("Stats Of Encoding ⚠️", data=f"stats{wah}")],
+                [Button.inline("Cancel the process ⚠️", data=f"skip{wah}")],
             ],
         )
         cmd = FFMPEG.format(dl, out)
