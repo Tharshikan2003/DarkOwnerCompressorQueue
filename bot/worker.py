@@ -66,7 +66,6 @@ async def encod(event):
                 name = "video_" + dt.now().isoformat("_", "seconds") + ".mp4"
             QUEUE.update({doc.id: [name, doc]})
             return await xxx.edit("```Added to Queue ⏰``` Please be patient, Compress will start soon")
-Please be patient, Compress will start soon   ")
         WORKING.append(1)
         xxx = await event.reply("📊 Downloading Your Anime File 📊")
         s = dt.now()
